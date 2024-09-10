@@ -1,13 +1,13 @@
-package com.serviceup.service_marketplace;
+package com.serviceup.serviceup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceMarketplaceApplication {
+public class ServiceUpApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ServiceMarketplaceApplication.class, args);
+		SpringApplication.run(ServiceUpApplication.class, args);
 	}
 
 }

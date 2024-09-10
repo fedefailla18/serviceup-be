@@ -1,4 +1,4 @@
-package com.serviceup.service_marketplace;
+package com.serviceup.serviceup;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
