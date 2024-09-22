@@ -1,15 +1,21 @@
 version: '3.8'
 services:
   postgres:
-    image: postgres:14
+    image: postgres:13-alpine
+    container_name: postgres-up
     environment:
       POSTGRES_DB: serviceup
       POSTGRES_USER: serviceup_user
       POSTGRES_PASSWORD: serviceup_password
     ports:
-      - "5433:5433"
+      - "5433:5432"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
 volumes:
   postgres_data:
