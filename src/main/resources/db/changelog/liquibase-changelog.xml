@@ -10,5 +10,8 @@
     <include file="db/changelog/changes/003-create-user-roles-table.sql"/>
     <include file="db/changelog/changes/004-insert-initial-roles.sql"/>
     <include file="db/changelog/changes/005-insert-initial-admin-user.sql"/>
-
+    <include file="db/changelog/changes/006-recreate-role-domain.sql"/>
+    <include file="db/changelog/changes/007-create-service-provider-categories.sql"/>
+    <include file="db/changelog/changes/008-create-service-types.sql"/>
+    <include file="db/changelog/changes/009-create-service-requests-table.sql"/>
 </databaseChangeLog>
