@@ -32,13 +32,13 @@ public class AuthController {
     private final JwtUtil jwtUtil;
 
     @PostMapping("/login")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthRequest authenticationRequest) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthRequest authenticationRequest) {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(), authenticationRequest.getPassword())
             );
-        } catch (Exception e) {
-            throw new Exception("Incorrect username or password", e);
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Incorrect username or password", e);
         }
 
         final UserDetails userDetails = userService.loadUserByUsername(authenticationRequest.getEmail());
@@ -50,7 +50,7 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody RegistrationRequest registrationRequest) {
         try {
-            authService.registerUser(registrationRequest.getEmail(), registrationRequest.getPassword());
+            authService.registerUser(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getUserType());
             return ResponseEntity.ok(new RegistrationResponse("User registered successfully"));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error: " + e.getMessage());
